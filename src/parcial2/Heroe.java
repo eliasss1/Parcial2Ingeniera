@@ -18,6 +18,14 @@ public class Heroe extends Personaje {
         this.mochila = new Mochila();
         this.armadura = null;
     }
+    
+    public void curarVida(Comida c) {
+        if (c != null && c.consumir()) {
+            int recuperado = c.getCantidadCuracion();
+            this.setVida(this.getVida() + recuperado);
+            System.out.println("Personaje curo su vida a " + this.getVida());
+        }
+    }
 
     public void recogerObjeto(ObjetoMovil o) {
         try {

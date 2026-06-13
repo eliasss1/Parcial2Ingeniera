@@ -36,16 +36,14 @@ public class Personaje extends ElementoJuego {
     }
 
     public void atacar(Personaje enemigo) {
-        System.out.println("Atacando con fuerza de: " + this.capacidadOfensiva);
         int vidaRestante = enemigo.getVida() - this.capacidadOfensiva;
-
         if (vidaRestante <= 0) {
             enemigo.setVida(0);
             enemigo.setEstaMuerto(true);
-            System.out.println("El enemigo HA MUERTO.");
+            enemigo.setX(-1);
+            enemigo.setY(-1);
         } else {
             enemigo.setVida(vidaRestante);
-            System.out.println("El enemigo quedó con " + enemigo.getVida() + " de vida.");
         }
     }
     
@@ -89,12 +87,15 @@ public class Personaje extends ElementoJuego {
     public int getNivelEnergia(){
         return nivelEnergia; 
     }
+    
     public void setNivelEnergia(int nivelEnergia){
         this.nivelEnergia = nivelEnergia; 
     }
+    
     public int getNumeroVidas(){
         return numeroVidas; 
     }
+    
     public void setNumeroVidas(int numeroVidas){
         this.numeroVidas = numeroVidas; 
     }

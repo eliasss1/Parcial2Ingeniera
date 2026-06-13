@@ -19,6 +19,15 @@ public class Mochila {
         this.capacidadMaxima = 3;
         this.contenido = new ArrayList<>();
     }
+    
+    public Comida buscarComida() {
+        for (ObjetoMovil obj : contenido) {
+            if (obj instanceof Comida) {
+                return (Comida) obj;
+            }
+        }
+        return null;
+    }
 
     public void ampliarCapacidad(int nuevaCapacidad) {
         if (nuevaCapacidad > this.capacidadMaxima) {
