@@ -1,0 +1,22 @@
+# Archivos compilados
+*.class
+
+# Carpetas de compilación y distribución de NetBeans
+/build/
+/dist/
+/nbbuild/
+/nbdist/
+
+# Configuraciones privadas de NetBeans (¡muy importante no subirlas!)
+/nbproject/private/
+/nbproject/Makefile-*.mk
+/nbproject/Package-*.bash
+nbactions.xml
+nb-configuration.xml
+
+# Archivos de log
+*.log
+
+# Archivos del sistema operativo (Opcional)
+.DS_Store
+Thumbs.db
