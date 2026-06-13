@@ -4,6 +4,7 @@
  */
 package parcial2;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -26,7 +27,61 @@ public class Personaje extends ElementoJuego{
         this.numeroVidas = numeroVidas;
         this.capacidadOfensiva = capacidadOfensiva;
         this.textura = textura;
-        
+        this.habilidadesEspeciales = new ArrayList<>();
+        this.habilidadesNormales = new ArrayList<>();
+    }
+    
+    public void caminar(){
+        System.out.println("El personaje esta caminando.");
+    }
+    
+    public void correr() {
+        System.out.println("El personaje esta corriendo.");
+    }
+
+    public void saltar() {
+        System.out.println("El personaje esta saltando.");
+    }
+
+    public void disparar() {
+        System.out.println("El personaje esta disparando.");
+    }
+
+    public void subirNivel() {
+        this.nivelEnergia += 10;
+        System.out.println("Nivel subido. Energia actual: " + this.nivelEnergia);
+    }
+
+    public int getNivelEnergia(){ 
+        return nivelEnergia; 
+    }
+    
+    public void setNivelEnergia(int nivelEnergia) { 
+        this.nivelEnergia = nivelEnergia; 
+    }
+    
+    public int getNumeroVidas(){
+        return numeroVidas; 
+    }
+    
+    public void setNumeroVidas(int numeroVidas){ 
+        this.numeroVidas = numeroVidas; 
+    }
+
+    public int getCapacidadOfensiva(){
+        return capacidadOfensiva; 
+    }
+    
+    public void setCapacidadOfensiva(int capacidadOfensiva){
+        this.capacidadOfensiva = capacidadOfensiva; 
+    }
+
+    public List<String> getHabilidadesEspeciales(){
+        return habilidadesEspeciales; 
+    }
+    
+    public List<String> getHabilidadesNormales() {
+        return habilidadesNormales; 
     }
      
 
