@@ -38,12 +38,14 @@ public class Mochila {
         }
     }
 
-    public void guardar(ObjetoMovil o) {
+    public boolean guardar(ObjetoMovil o) {
         if (contenido.size() < capacidadMaxima) {
             contenido.add(o);
             System.out.println(o.getNombre() + " guardado en la mochila.");
+            return true; 
         } else {
             System.out.println("Error: La mochila esta llena.");
+            return false;
         }
     }
 

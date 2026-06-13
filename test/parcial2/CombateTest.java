@@ -58,4 +58,20 @@ public class CombateTest {
         assertEquals("La vida minima garantizada debe ser 0, no negativa", 0, enemigo.getVida());
         assertTrue("El enemigo DEBE estar muerto", enemigo.isEstaMuerto());
     }
+    
+    @Test
+    public void testCurarVida() {
+        heroe.setVida(30);
+        Comida manzana = new Comida(0, 0, "Manzana", 15, 1);
+        
+        heroe.curarVida(manzana);
+        
+        assertEquals("La vida del heroe debe ser 45", 45, heroe.getVida());
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void testNoPuedeCurarse() {
+        heroe.setVida(30);
+        heroe.curarVida(null); 
+    }
 }
