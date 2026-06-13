@@ -9,5 +9,18 @@ package parcial2;
  * @author elias
  */
 public class PiezaArmadura {
+    private String tipo; // casco, bracero, cubre piernas
+    private int resistencia;
+
+    public PiezaArmadura(String tipo, int resistencia) {
+        this.tipo = tipo;
+        this.resistencia = resistencia;
+    }
+
+    public String getTipo(){ return tipo;
+    }
     
+    public int getResistencia(){
+        return resistencia; 
+    }
 }

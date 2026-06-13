@@ -11,10 +11,12 @@ import java.util.List;
  *
  * @author elias
  */
-public class Personaje extends ElementoJuego{
+public class Personaje extends ElementoJuego {
     protected int nivelEnergia;
     protected int numeroVidas;
     protected int capacidadOfensiva;
+    protected int vida;
+    protected boolean estaMuerto;
     protected int ancho;
     protected int alto;
     protected String textura;
@@ -26,25 +28,41 @@ public class Personaje extends ElementoJuego{
         this.nivelEnergia = nivelEnergia;
         this.numeroVidas = numeroVidas;
         this.capacidadOfensiva = capacidadOfensiva;
+        this.vida = 100; 
+        this.estaMuerto = false;
         this.textura = textura;
         this.habilidadesEspeciales = new ArrayList<>();
         this.habilidadesNormales = new ArrayList<>();
     }
-    
-    public void caminar(){
-        System.out.println("El personaje esta caminando.");
-    }
-    
-    public void correr() {
-        System.out.println("El personaje esta corriendo.");
-    }
 
-    public void saltar() {
-        System.out.println("El personaje esta saltando.");
-    }
+    public void atacar(Personaje enemigo) {
+        System.out.println("Atacando con fuerza de: " + this.capacidadOfensiva);
+        int vidaRestante = enemigo.getVida() - this.capacidadOfensiva;
 
-    public void disparar() {
-        System.out.println("El personaje esta disparando.");
+        if (vidaRestante <= 0) {
+            enemigo.setVida(0);
+            enemigo.setEstaMuerto(true);
+            System.out.println("El enemigo HA MUERTO.");
+        } else {
+            enemigo.setVida(vidaRestante);
+            System.out.println("El enemigo quedó con " + enemigo.getVida() + " de vida.");
+        }
+    }
+    
+    public void caminar(){ 
+        System.out.println("El personaje esta caminando."); 
+    }
+    
+    public void correr(){ 
+        System.out.println("El personaje esta corriendo."); 
+    }
+    
+    public void saltar(){ 
+        System.out.println("El personaje esta saltando."); 
+    }
+    
+    public void disparar(){ 
+        System.out.println("El personaje esta disparando."); 
     }
 
     public void subirNivel() {
@@ -52,22 +70,35 @@ public class Personaje extends ElementoJuego{
         System.out.println("Nivel subido. Energia actual: " + this.nivelEnergia);
     }
 
-    public int getNivelEnergia(){ 
+    public int getVida(){
+        return vida; 
+    }
+    
+    public void setVida(int vida){
+        this.vida = vida; 
+    }
+    
+    public boolean isEstaMuerto(){
+        return estaMuerto; 
+    }
+    
+    public void setEstaMuerto(boolean estaMuerto){
+        this.estaMuerto = estaMuerto; 
+    }
+
+    public int getNivelEnergia(){
         return nivelEnergia; 
     }
-    
-    public void setNivelEnergia(int nivelEnergia) { 
+    public void setNivelEnergia(int nivelEnergia){
         this.nivelEnergia = nivelEnergia; 
     }
-    
     public int getNumeroVidas(){
         return numeroVidas; 
     }
-    
-    public void setNumeroVidas(int numeroVidas){ 
+    public void setNumeroVidas(int numeroVidas){
         this.numeroVidas = numeroVidas; 
     }
-
+    
     public int getCapacidadOfensiva(){
         return capacidadOfensiva; 
     }
@@ -75,15 +106,12 @@ public class Personaje extends ElementoJuego{
     public void setCapacidadOfensiva(int capacidadOfensiva){
         this.capacidadOfensiva = capacidadOfensiva; 
     }
-
+    
     public List<String> getHabilidadesEspeciales(){
         return habilidadesEspeciales; 
     }
     
-    public List<String> getHabilidadesNormales() {
+    public List<String> getHabilidadesNormales(){
         return habilidadesNormales; 
     }
-     
-
-
 }
