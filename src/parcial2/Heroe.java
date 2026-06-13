@@ -21,7 +21,7 @@ public class Heroe extends Personaje {
 
     public void recogerObjeto(ObjetoMovil o) {
         try {
-            mochila.guardarEnMochila(o);
+            mochila.guardar(o);
         } catch (Exception e) {
             System.out.println("No se pudo recoger: " + e.getMessage());
         }
@@ -37,7 +37,6 @@ public class Heroe extends Personaje {
         System.out.println("Armadura equipada con exito.");
     }
 
-    // Getters
     public Mochila getMochila() {
         return mochila;
     }
